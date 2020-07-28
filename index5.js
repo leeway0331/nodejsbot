@@ -65,7 +65,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setAuthor('Help of Sinon BOT', helpImg)
       .setColor('#186de6')
-      .setFooter(`Sinon BOT ❤️`)
+      .setFooter(`Sinon BOT ❤`)
       .setTimestamp()
     
     commandList.forEach(x => {
