@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.argv.length == 2 ? process.env.token : '';
+const token = process.argv.length == 2 ? process.env.token : "";
 const welcomeChannelName = "오하요우";
 const byeChannelName = "사요나라";
 const welcomeChannelComment = "오하요우.";
@@ -8,6 +8,7 @@ const byeChannelComment = "사요나라.";
 
 client.on('ready', () => {
   console.log('켰다.');
+  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -37,7 +38,6 @@ client.on('message', (message) => {
 
   if(message.content == 'embed') {
     let img = 'https://kin-phinf.pstatic.net/20200713_226/15945752559537eFmx_JPEG/20200713_023405.jpg?type=w750';
-    let embed = new Discord.RichEmbed()
       .setTitle('타이틀')
       .setURL('http://www.naver.com')
       .setAuthor('Kaiop', img, 'http://www.naver.com')
@@ -53,13 +53,14 @@ client.on('message', (message) => {
       .setFooter('Kaiop 공지', img)
 
     message.channel.send(embed)
-  } else if(message.content == 'embed2') {
+  } else if(message.content == 'help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
       {name: 'ping', desc: '현재 핑 상태'},
       {name: 'embed', desc: 'embed 예제1'},
       {name: 'embed2', desc: 'embed 예제2 (help)'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: '!청소', desc: '텍스트 지움'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
