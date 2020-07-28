@@ -50,7 +50,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('Kaiop 공지, img)
+      .setFooter('Kaiop 공지', img)
 
     message.channel.send(embed)
   } else if(message.content == 'embed2') {
