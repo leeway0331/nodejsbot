@@ -28,7 +28,7 @@ client.on("guildMemberRemove", (member) => {
 
 client.on('message', (message) => {
   if(message.content === 'ping') {
-    message.reply('pong');
+    message.reply('현재는 사용 불가입니다');
   }
 });
 

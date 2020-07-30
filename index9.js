@@ -33,37 +33,37 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
-    return message.reply('pong');
+    return message.reply('현재는 사용 불가입니다');
   }
 
   if(message.content == 'embed') {
     let img = 'https://kin-phinf.pstatic.net/20200713_226/15945752559537eFmx_JPEG/20200713_023405.jpg?type=w750';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
+      .setTitle('봇 설명')
       .setURL('http://www.naver.com')
       .setAuthor('Kaiop', img, 'http://www.naver.com')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
+      .addField('시논 봇', '현재는 기본 설정만 된 봇입니다')
+      .addField('버그 제보', 'Kaiop#4297로 dm 부탁드립니다', true)
+      .addField('오류 제보', 'Kaiop#4297로 dm 부탁드립니다', true)
       .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addField('점검', '버그나 오류 들어올때 할겁니다\n명령어 추가는 곧 할 예정입니다\n2주마다 한번은 점검 할 예정입니다\n')
       .addBlankField()
       .setTimestamp()
       .setFooter('Kaiop 공지', img)
 
     message.channel.send(embed)
-  } else if(message.content == '!help') {
+  } else if(message.content == 'khelp') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!help', desc: 'help'},
+      {name: 'khelp', desc: 'help'},
       {name: 'ping', desc: '현재 핑 상태'},
       {name: 'embed', desc: 'embed 예제1'},
       {name: 'embed2', desc: 'embed 예제2 (help)'},
-      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
-      {name: '!청소', desc: '텍스트 지움'},
-      {name: '!초대', desc: '초대 코드 표기'},
+      {name: 'k전체공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: 'k청소', desc: '텍스트 지움'},
+      {name: 'k초대', desc: '초대 코드 표기'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -79,17 +79,17 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
-  } else if(message.content == '!초대코드') {
+  } else if(message.content == 'k초대코드') {
     message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
       .then(invite => {
         message.channel.send(invite.url)
       });
   }
 
-  if(message.content.startsWith('!전체공지')) {
+  if(message.content.startsWith('k전체공지')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
-      let contents = message.content.slice('!전체공지'.length);
+      let contents = message.content.slice('k전체공지'.length);
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
         x.user.send(`<@${message.author.id}> ${contents}`);
@@ -101,10 +101,10 @@ client.on('message', (message) => {
     }
   }
 
-  if(message.content.startsWith('!청소')) {
+  if(message.content.startsWith('k청소')) {
     if(checkPermission(message)) return
 
-    var clearLine = message.content.slice('!청소 '.length);
+    var clearLine = message.content.slice('k청소 '.length);
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
