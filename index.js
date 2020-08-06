@@ -241,5 +241,8 @@ async function AutoMsgDelete(message, str, delay = 3000) {
   }, delay);
 }
 
+if(message.content == 'sinon') {
+  return message.reply('저는 현재 이 방이 좋습니다');
+}
 
 client.login(token);
