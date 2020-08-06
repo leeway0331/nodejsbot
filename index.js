@@ -241,8 +241,8 @@ async function AutoMsgDelete(message, str, delay = 3000) {
   }, delay);
 }
 
-if(message.content == 'ping') {
-  return message.reply('현재는 사용 불가입니다');
+if(message.content == 'sinon') {
+  return message.reply('저는 이 방이 좋습니다');
 }
 
 client.login(token);
