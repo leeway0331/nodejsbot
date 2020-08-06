@@ -38,7 +38,7 @@ client.on('message', (message) => {
     return message.reply('현재는 사용 불가입니다');
   }
 
-  if(message.content == 'ksi') {
+  if(message.content == 'embed') {
     let embed = new Discord.RichEmbed()
     let img = 'https://kin-phinf.pstatic.net/20200713_226/15945752559537eFmx_JPEG/20200713_023405.jpg?type=w750';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -240,9 +240,10 @@ async function AutoMsgDelete(message, str, delay = 3000) {
     msg.delete();
   }, delay);
 }
-
-if(message.content == 'sinon') {
+   if(message.author.bot) return;
+  
+   if(message.content == 'sinon') {
   return message.reply('저는 이 방이 좋습니다');
-}
+   }
 
 client.login(token);
