@@ -205,7 +205,7 @@ client.on('message', (message) => {
 });
 
 function checkPermission(message) {
-  if(!message.member.hasBotPermission("MANAGE_MESSAGES")) {
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) {
     message.channel.send(`<@${message.author.id}> ` + "명령어를 수행할 관리자 권한을 소지하고 있지않습니다.")
     return true;
   } else {
