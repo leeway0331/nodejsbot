@@ -35,6 +35,12 @@ client.on('message', (message) => {
   if(message.content == 'ping') {
     return message.reply('현재는 사용 불가입니다');
   }
+  
+  if(message.author.bot) return;
+
+  if(message.content == 'kurl') {
+    return message.reply('https://discord.com/api/oauth2/authorize?client_id=737284094844731434&permissions=0&scope=bot');
+  }
 
   if(message.content == 'embed') {
     let img = 'https://kin-phinf.pstatic.net/20200713_226/15945752559537eFmx_JPEG/20200713_023405.jpg?type=w750';
