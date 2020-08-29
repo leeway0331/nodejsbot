@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = 'NzM3Mjg0MDk0ODQ0NzMxNDM0.Xx7HUg.NqYIftXP0N_94gjwXpfx8nuNVHw';
+const token = 'NzM3Mjg0MDk0ODQ0NzMxNDM0.Xx7HUg.FIvgOZwzt87ledBTfyWmIF9aYRA';
 
 client.on('ready', () => {
   console.log('켰다.');
